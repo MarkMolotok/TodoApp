@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-do CRUD</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <style>
+        #head {
+            width: 250px;
+            margin: 0;
+            border: 2px solid #fff;
+            padding: 10px;
+            color: #fff;
+            background-color: #F05258;
+            box-shadow: 0 0 0 2px #F05258;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            }
+        body {
+            width: 280px;
+            margin: 5;
+            border: 2px solid #fff;
+            padding: 15px;
+            box-shadow: 0 0 0 2px #000000;
+            } 
+        #counter {
+            text-align: center;
+            margin: 5;
+            border: 2px solid rgb(0, 0, 0);
+            padding: 2px;
+            box-shadow: 0 0 0 2px #000000;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            }        
+        #table {
+            width: 350px;
+            margin: 5;
+            border: 2px solid rgb(0, 0, 0);
+            padding: 2px;
+            box-shadow: 0 0 0 2px #000000;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            }       
+
+       </style>
+</head>
+<body>
+    <div id="head">
+    <h1>To-do CRUD</h1>
+    </div>
+    <h3>Add</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()" id="add">
+        <input type="text" id="add-name" placeholder="New to-do">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="checkbox" id="edit-isComplete">
+            <input type="text" id="edit-name">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <div id="todo">
+    <p id="counter"></p>
+
+    <table>
+        <tr id="table">
+            <th>Is Complete?</th>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="todos"></tbody>
+    </table>
+    </div>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+</html>
